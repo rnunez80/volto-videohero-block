@@ -16,10 +16,12 @@ export const videoheroSchema = (props) => {
           'headingText',
           'subHeadingText',
           'textPosition',
+          'textBG',
           'cta1Title',
           'cta1Link',
           'cta2Title',
           'cta2Link',
+          'moreBelow',
         ],
       },
     ],
@@ -57,6 +59,7 @@ export const videoheroSchema = (props) => {
       },
       webmUrl: {
         title: 'WebM URL',
+
         type: 'string',
         widget: 'url',
       },
@@ -83,6 +86,16 @@ export const videoheroSchema = (props) => {
         widget: 'align',
         actions: ['center', 'full'],
         default: 'center',
+      },
+      textBG: {
+        title: 'Use Background on Text',
+        type: 'boolean',
+        default: true,
+      },
+      moreBelow: {
+        title: 'show more below icon',
+        type: 'boolean',
+        default: false,
       },
     },
     required: [],

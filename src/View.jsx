@@ -1,8 +1,10 @@
 // /src/components/VideoHero.jsx
 import React, { useEffect, useState } from 'react';
 import { Button, Container } from 'semantic-ui-react';
+import Icon from '@plone/volto/components/theme/Icon/Icon';
 import PropTypes from 'prop-types';
 import './videoHero.css';
+import moreSVG from '@plone/volto/icons/circle-bottom.svg';
 
 const VideoHero = ({ data }) => {
   const sizeClass = data.size === 'full' ? 'full' : '';
@@ -50,18 +52,23 @@ const VideoHero = ({ data }) => {
         ${data.imageUrl}/@@images/image/great 1200w
     `} alt='low speed image' />
     </div>)}
-    <Container text className='content'>
+    <Container text className={`content textbg-${data.textBG}`}>
       <div className='preHeading'>{data.preheadingText}</div>
       <div className='videoHeading'>{data.headingText}</div>
       <p className='subHeading'>{data.subHeadingText}</p>
-      {data.cta1Title && data.cta1Link && (<Button href={data.cta1Link} primary>
-        {data.cta1Title}
-      </Button>)}
-      {data.cta2Title && data.cta2Link && (<Button href={data.cta2Link} secondary>
-        {data.cta2Title}
-      </Button>)}
-
+      {data.cta1Title && data.cta1Link && (
+        <Button href={data.cta1Link} primary>
+          {data.cta1Title}
+        </Button>
+      )}
+      {data.cta2Title && data.cta2Link && (
+        <Button href={data.cta2Link} secondary>
+          {data.cta2Title}
+        </Button>)}
     </Container>
+    {data.moreBelow && (
+      <Icon name={moreSVG} size='40px' className='moreContent' />
+    )}
   </div>);
 };
 
@@ -79,6 +86,8 @@ VideoHero.propTypes = {
     imageUrl: PropTypes.string,
     textPosition: PropTypes.string,
     size: PropTypes.string,
+    textBG: PropTypes.string,
+    moreBelow: PropTypes.string,
   }).isRequired,
 };
 

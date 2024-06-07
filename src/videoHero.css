@@ -7,7 +7,6 @@
 }
 
 .video-hero.full {
-  /*padding-bottom: 0;*/
   height: 100vh;
   position: relative;
   right: 50%;
@@ -33,9 +32,12 @@
   color: #fff;
   position: absolute;
   z-index: 1;
-  padding: 20px;
+  padding: 12px;
   margin: 20px;
-  text-align: left; /* Ensure text is centered */
+  text-align: left;
+}
+
+.video-hero .content.textbg-true {
   background: rgba(0, 0, 0, 0.2); /* Dark see-through background */
   backdrop-filter: blur(10px); /* Blurry effect */
   border-radius: 1em; /* Optional: Add some rounded corners */
@@ -58,6 +60,48 @@
   right: 20px;
 }
 
+.videoHeading {
+  font-size: 2.5em;
+  font-weight: 600;
+  color: #ffea00;
+  margin-top: -0.3em;
+}
+
+.preHeading {
+  font-variant: all-small-caps;
+  font-size: 1.2em;
+}
+
+.moreContent {
+  color: #fff;
+  position: absolute;
+  z-index: 1;
+  text-align: center;
+  bottom: 10px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: pulse 3s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.5;
+    scale: 1;
+  }
+  50% {
+    opacity: 0.1;
+    scale: 0.6;
+  }
+  100% {
+    opacity: 0.5;
+    scale: 1;
+  }
+}
+
+.moreContent {
+  animation: pulse 3s infinite;
+}
+
 @media screen and (min-width: 1024px) {
   .video-hero.text-left .content {
     left: 10vw;
@@ -65,5 +109,19 @@
 
   .video-hero.text-right .content {
     right: 10vw;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .video-hero.text-left .content {
+    left: 5px;
+  }
+
+  .video-hero.text-right .content {
+    right: 5px;
+  }
+
+  .videoHeading {
+    font-size: 1.5em;
   }
 }
