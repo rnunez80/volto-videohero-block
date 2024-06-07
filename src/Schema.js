@@ -59,18 +59,20 @@ export const videoheroSchema = (props) => {
       },
       webmUrl: {
         title: 'WebM URL',
-
+        description: 'WebM video are recommended, better quality and smaller size',
         type: 'string',
         widget: 'url',
       },
       mp4Url: {
         title: 'MP4 URL',
+        description: 'MP4 video are required to Safari compatibility',
         type: 'string',
         widget: 'url',
         required: true,
       },
       imageUrl: {
         title: 'Image URL',
+        description: 'Image to show on low speed connections',
         type: 'string',
         widget: 'url',
         required: true,
