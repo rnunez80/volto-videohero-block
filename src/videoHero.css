@@ -7,8 +7,15 @@
 }
 
 .video-hero.full {
-  padding-bottom: 0;
+  /*padding-bottom: 0;*/
   height: 100vh;
+  position: relative;
+  right: 50%;
+  left: 50%;
+  width: 100vw !important;
+  max-width: none !important;
+  margin-right: -50vw !important;
+  margin-left: -50vw !important;
 }
 
 .video-hero .background-video video,
@@ -23,11 +30,40 @@
 }
 
 .video-hero .content {
+  color: #fff;
   position: absolute;
+  z-index: 1;
+  padding: 20px;
+  margin: 20px;
+  text-align: left; /* Ensure text is centered */
+  background: rgba(0, 0, 0, 0.2); /* Dark see-through background */
+  backdrop-filter: blur(10px); /* Blurry effect */
+  border-radius: 1em; /* Optional: Add some rounded corners */
+}
+
+.video-hero.text-left .content {
+  bottom: 0;
+  left: 20px;
+}
+
+.video-hero.text-center .content {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 1;
-  padding: 20px;
-  text-align: center; /* Ensure text is centered */
+  text-align: center;
+}
+
+.video-hero.text-right .content {
+  bottom: 0;
+  right: 20px;
+}
+
+@media screen and (min-width: 1024px) {
+  .video-hero.text-left .content {
+    left: 10vw;
+  }
+
+  .video-hero.text-right .content {
+    right: 10vw;
+  }
 }

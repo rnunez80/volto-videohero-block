@@ -1,6 +1,6 @@
 // /src/components/VideoHero.jsx
-import React, { useState, useEffect } from 'react';
-import { Button, Header, Container } from 'semantic-ui-react';
+import React, { useEffect, useState } from 'react';
+import { Button, Container } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import './videoHero.css';
 
@@ -30,40 +30,39 @@ const VideoHero = ({ data }) => {
       }
     };
   }, []);
+  const isHighOrMediumSpeed = effectiveType === '4g' || effectiveType === '3g';
 
+  return (<div className={`video-hero ${sizeClass} text-${data.textPosition}`}>
+    {isHighOrMediumSpeed ? (<div className='background-video'>
+      <video autoPlay muted loop>
+        {data.webmUrl && <source src={`${data.webmUrl}/@@download/file`} type='video/webm' />}
+        <source src={`${data.mp4Url}/@@download/file`} type='video/mp4' />
+        <img src={`${data.imageUrl}/@@images/image/preview`} alt='video placeholder' />
+      </video>
+    </div>) : (<div className='background-image'>
+      <img src='${data.imageUrl}/@@images/image/preview' width='1920' height='1080'
+           className='responsive' srcSet={`
+        ${data.imageUrl}/@@images/image/mini 200w,
+        ${data.imageUrl}/@@images/image/preview 400w,
+        ${data.imageUrl}/@@images/image/teaser 600w,
+        ${data.imageUrl}/@@images/image/large 800w,
+        ${data.imageUrl}/@@images/image/larger 1000w,
+        ${data.imageUrl}/@@images/image/great 1200w
+    `} alt='low speed image' />
+    </div>)}
+    <Container text className='content'>
+      <div className='preHeading'>{data.preheadingText}</div>
+      <div className='videoHeading'>{data.headingText}</div>
+      <p className='subHeading'>{data.subHeadingText}</p>
+      {data.cta1Title && data.cta1Link && (<Button href={data.cta1Link} primary>
+        {data.cta1Title}
+      </Button>)}
+      {data.cta2Title && data.cta2Link && (<Button href={data.cta2Link} secondary>
+        {data.cta2Title}
+      </Button>)}
 
-  return (
-    <div className={`video-hero ${sizeClass} text-${data.textPosition}`}>
-      <div className='background-video'>
-        <video autoPlay muted loop>
-            {data.webmUrl && <source src={`${data.webmUrl}/@@download/file`} type='video/webm' />}
-            <source src={`${data.mp4Url}/@@download/file`} type='video/mp4' />
-            <img src={`${data.imageUrl}/@@download/file`} alt='video placeholder' />
-          </video>
-      </div>
-      <div className='background-image' style={{ backgroundImage: `url(${data.imageUrl})` }} />
-      <Container text className='content'>
-        <Header as='h2'>{data.preheadingText}</Header>
-        <Header as='h1'>{data.headingText}</Header>
-        <Header as='h3'>{data.subHeadingText}</Header>
-        {data.cta1Title && data.cta1Link && (
-          <Button href={data.cta1Link} primary>
-            {data.cta1Title}
-          </Button>
-        )}
-        {data.cta2Title && data.cta2Link && (
-          <Button href={data.cta2Link} secondary>
-            {data.cta2Title}
-          </Button>
-        )}
-        {effectiveType === '4g' ? (
-          <div>You have a fast connection</div>
-        ) : (
-          <div>You have a slow connection</div>
-        )}
-      </Container>
-    </div>
-  );
+    </Container>
+  </div>);
 };
 
 VideoHero.propTypes = {
