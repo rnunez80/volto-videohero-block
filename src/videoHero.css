@@ -63,9 +63,11 @@
 .videoHeading {
   font-size: 2.5em;
   font-weight: 600;
-  color: #ffea00;
-  margin-top: -0.3em;
+  color: #ffb907;
+  margin-top: 0em;
+  line-height: 1em;
 }
+
 
 .preHeading {
   font-variant: all-small-caps;
