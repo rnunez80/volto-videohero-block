@@ -79,27 +79,28 @@
   text-align: center;
   bottom: 10px;
   left: 50%;
-  transform: translate(-50%, -50%);
-  animation: pulse 3s infinite;
+  transform: translate(-50%, 0);
+  animation: fadeMoveDown 3s infinite;
+  opacity: 0;
 }
 
-@keyframes pulse {
+.video-hero a {
+  text-decoration: none !important;
+}
+
+@keyframes fadeMoveDown {
   0% {
-    opacity: 0.5;
-    scale: 1;
+    opacity: 0;
+    transform: translate(-50%, -20px);
   }
   50% {
-    opacity: 0.1;
-    scale: 0.6;
+    opacity: 1;
+    transform: translate(-50%, 0);
   }
   100% {
-    opacity: 0.5;
-    scale: 1;
+    opacity: 0;
+    transform: translate(-50%, 0);
   }
-}
-
-.moreContent {
-  animation: pulse 3s infinite;
 }
 
 @media screen and (min-width: 1024px) {
