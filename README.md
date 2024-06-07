@@ -7,9 +7,9 @@ The `volto-videohero-block` is a custom Volto add-on that provides a "Video Hero
 
 ## Features
 
-- Video background support
+- Video background support (WebM and MP4)
 - Image fallback for video (for low-speed connections)
-- Title and description fields
+- content wide or full width/hight
 - Two customizable call-to-action buttons
 - Configurable text alignment
 - Support for pre-heading and subheading
