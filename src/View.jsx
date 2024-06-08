@@ -20,10 +20,35 @@ const VideoHero = ({ data }) => {
       }
     };
 
+    const measureDownloadSpeed = () => {
+      const startTime = Date.now();
+      const svg = new Image();
+
+      svg.onload = () => {
+        const duration = (Date.now() - startTime) / 1000; // in seconds
+        const bitsLoaded = 8 * 1000; // Assume SVG size is 1KB
+        const speedBps = bitsLoaded / duration;
+        const speedKbps = speedBps / 1024;
+        const effectiveType = speedKbps > 1000 ? '4g' : '3g';
+
+        setNetworkType('unknown');
+        setEffectiveType(effectiveType);
+      };
+
+      svg.onerror = () => {
+        setNetworkType('unknown');
+        setEffectiveType('3g');
+      };
+
+      svg.src = moreSVG; // Use the moreSVG icon for the speed test
+    };
+
     updateNetworkStatus();
 
     if (navigator.connection) {
       navigator.connection.addEventListener('change', updateNetworkStatus);
+    } else {
+      measureDownloadSpeed();
     }
 
     return () => {
