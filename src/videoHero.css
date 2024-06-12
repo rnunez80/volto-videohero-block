@@ -71,13 +71,12 @@
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 .videoHeading {
-  font-size: 2.5em;
   font-weight: 600;
-  color: #ffb907;
   margin-top: 0em;
   line-height: 1em;
+  color: #ef4035;
+  font-size: 4rem;
 }
-
 
 .preHeading {
   font-variant: all-small-caps;
