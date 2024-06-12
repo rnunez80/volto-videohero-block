@@ -27,7 +27,7 @@ export const videoheroSchema = (props) => {
     ],
     properties: {
       preheadingText: {
-        title: 'pre-heading',
+        title: 'Pre-heading',
         type: 'string',
       },
       headingText: {
@@ -40,7 +40,7 @@ export const videoheroSchema = (props) => {
         widget: 'textarea',
       },
       cta1Title: {
-        title: 'Primary CTA text',
+        title: 'Primary CTA Text',
         type: 'string',
       },
       cta1Link: {
@@ -49,7 +49,7 @@ export const videoheroSchema = (props) => {
         widget: 'url',
       },
       cta2Title: {
-        title: 'Secondary CTA text',
+        title: 'Secondary CTA Text',
         type: 'string',
       },
       cta2Link: {
@@ -59,20 +59,20 @@ export const videoheroSchema = (props) => {
       },
       webmUrl: {
         title: 'WebM URL',
-        description: 'WebM video are recommended, better quality and smaller size',
+        description: 'WebM videos are recommended for better quality and smaller size',
         type: 'string',
         widget: 'url',
       },
       mp4Url: {
         title: 'MP4 URL',
-        description: 'MP4 video are required to Safari compatibility',
+        description: 'MP4 videos are required for Safari compatibility',
         type: 'string',
         widget: 'url',
         required: true,
       },
       imageUrl: {
         title: 'Image URL',
-        description: 'Image to show on low speed connections',
+        description: 'Image to show on low-speed connections',
         type: 'string',
         widget: 'url',
         required: true,
@@ -95,7 +95,7 @@ export const videoheroSchema = (props) => {
         default: true,
       },
       moreBelow: {
-        title: 'show more below icon',
+        title: 'Show More Below Icon',
         type: 'boolean',
         default: false,
       },
