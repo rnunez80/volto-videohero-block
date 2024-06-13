@@ -60,43 +60,31 @@ const VideoHero = ({ data }) => {
 
   const isHighOrMediumSpeed = effectiveType === '4g' || effectiveType === '3g';
 
-  // Extract the URL from the imageUrl object or array
-  const imageUrl = Array.isArray(data.imageUrl) ? data.imageUrl[0]?.['@id'] : data.imageUrl?.['@id'] || '';
-
-  // Log the imageUrl to the console
-  console.log('imageUrl:', imageUrl);
 
   return (
     <div className={`video-hero ${sizeClass} text-${data.textPosition}`}>
 
+
+      {isHighOrMediumSpeed ? (
         <div className='background-video'>
           <video autoPlay muted loop playsInline>
-            {isHighOrMediumSpeed ? (
-              <>
             {data.webmUrl && <source src={`${data.webmUrl}/@@download/file`} type='video/webm' />}
-            <source src={`${data.mp4Url}/@@download/file`} type='video/mp4' />
-              </>
-            ) : (
-              <div className='background-image'>
-                <img
-                  src={`${imageUrl}/@@images/image/preview`}
-                  alt='low speed image'
-                  width='1920'
-                  height='1080'
-                  className='responsive'
-                  srcSet={`
-              ${imageUrl}/@@images/image/mini 200w,
-              ${imageUrl}/@@images/image/preview 400w,
-              ${imageUrl}/@@images/image/teaser 600w,
-              ${imageUrl}/@@images/image/large 800w,
-              ${imageUrl}/@@images/image/larger 1000w,
-              ${imageUrl}/@@images/image/great 1200w
-            `}
-                />
-              </div>
-            )}
+            {data.mp4Url && <source src={`${data.mp4Url}/@@download/file`} type='video/mp4' />}
           </video>
         </div>
+      ) : (
+        <div className='background-image'>
+          <img
+            src={`${data.imageUrl}/@@images/image/preview`}
+            srcSet={`
+              ${data.imageUrl}/@@images/image/preview 400w,
+              ${data.imageUrl}/@@images/image/teaser 600w,
+              ${data.imageUrl}/@@images/image/large 800w,
+              ${data.imageUrl}/@@images/image/larger 1000w,
+              ${data.imageUrl}/@@images/image/great 1200w`}
+          />
+        </div>
+      )}
 
 
       <Container text className={`content textbg-${data.textBG}`}>

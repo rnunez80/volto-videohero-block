@@ -92,7 +92,7 @@ export const videoheroSchema = (props) => {
       textBG: {
         title: 'Use Background on Text',
         type: 'boolean',
-        default: true,
+        default: false,
       },
       moreBelow: {
         title: 'Show More Below Icon',
