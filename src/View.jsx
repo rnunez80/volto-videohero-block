@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Container } from 'semantic-ui-react';
 import Icon from '@plone/volto/components/theme/Icon/Icon';
 import PropTypes from 'prop-types';
@@ -9,82 +9,72 @@ import { UniversalLink } from '@plone/volto/components';
 const VideoHero = ({ data }) => {
   const sizeClass = data.size === 'full' ? 'full' : '';
 
-  const [networkType, setNetworkType] = useState('');
-  const [effectiveType, setEffectiveType] = useState('');
-
-  useEffect(() => {
-    const updateNetworkStatus = () => {
-      if (navigator.connection) {
-        setNetworkType(navigator.connection.type);
-        setEffectiveType(navigator.connection.effectiveType);
-      }
-    };
-
-    const measureDownloadSpeed = () => {
-      const startTime = Date.now();
-      const svg = new Image();
-
-      svg.onload = () => {
-        const duration = (Date.now() - startTime) / 1000; // in seconds
-        const bitsLoaded = 8 * 1000; // Assume SVG size is 1KB
-        const speedBps = bitsLoaded / duration;
-        const speedKbps = speedBps / 1024;
-        const effectiveType = speedKbps > 1000 ? '4g' : '3g';
-
-        setNetworkType('unknown');
-        setEffectiveType(effectiveType);
-      };
-
-      svg.onerror = () => {
-        setNetworkType('unknown');
-        setEffectiveType('3g');
-      };
-
-      svg.src = moreSVG; // Use the moreSVG icon for the speed test
-    };
-
-    updateNetworkStatus();
-
-    if (navigator.connection) {
-      navigator.connection.addEventListener('change', updateNetworkStatus);
-    } else {
-      measureDownloadSpeed();
-    }
-
-    return () => {
-      if (navigator.connection) {
-        navigator.connection.removeEventListener('change', updateNetworkStatus);
-      }
-    };
-  }, []);
-
-  const isHighOrMediumSpeed = effectiveType === '4g' || effectiveType === '3g';
-
-
   return (
     <div className={`video-hero ${sizeClass} text-${data.textPosition}`}>
 
-
-      {isHighOrMediumSpeed ? (
-        <div className='background-video'>
-          <video autoPlay muted loop playsInline>
-            {data.webmUrl && <source src={`${data.webmUrl}/@@download/file`} type='video/webm' />}
-            {data.mp4Url && <source src={`${data.mp4Url}/@@download/file`} type='video/mp4' />}
-          </video>
-        </div>
-      ) : (
-        <div className='background-image'>
-          <img
-            src={`${data.imageUrl}/@@images/image/preview`}
-            srcSet={`
-              ${data.imageUrl}/@@images/image/preview 400w,
-              ${data.imageUrl}/@@images/image/teaser 600w,
-              ${data.imageUrl}/@@images/image/large 800w,
-              ${data.imageUrl}/@@images/image/larger 1000w,
-              ${data.imageUrl}/@@images/image/great 1200w`}
-          />
-        </div>
-      )}
+      <div className='background-video'>
+        <video autoPlay muted loop playsInline>
+          {data.size === 'full' ? (
+            <>
+              {data.video2kUrl && (
+                <source
+                  src={`${data.video2kUrl}/@@download/file`}
+                  type='video/mp4'
+                  media='(min-width: 1280px) and (min-height: 720px)'
+                  width='2560'
+                  height='1440'
+                />
+              )}
+              {data.videohdUrl && (
+                <source
+                  src={`${data.videohdUrl}/@@download/file`}
+                  type='video/mp4'
+                  media='(min-width: 769px) and (max-width: 1280px), (min-height: 433px) and (max-height: 720px)'
+                  width='1280'
+                  height='720'
+                />
+              )}
+              {data.mp4Url && (
+                <source
+                  src={`${data.mp4Url}/@@download/file`}
+                  type='video/mp4'
+                  width='768'
+                  height='432'
+                />
+              )}
+            </>
+          ) : (
+            <>
+              {data.video2kUrl && (
+                <source
+                  src={`${data.video2kUrl}/@@download/file`}
+                  type='video/mp4'
+                  media='(min-width: 1280px) and (min-height: 720px)'
+                  width='2560'
+                  height='1440'
+                />
+              )}
+              {data.videohdUrl && (
+                <source
+                  src={`${data.videohdUrl}/@@download/file`}
+                  type='video/mp4'
+                  media='(min-width: 768px) and (max-width: 1279px), (min-height: 432px) and (max-height: 719px)'
+                  width='1280'
+                  height='720'
+                />
+              )}
+              {data.mp4Url && (
+                <source
+                  src={`${data.mp4Url}/@@download/file`}
+                  type='video/mp4'
+                  width='768'
+                  height='432'
+                />
+              )}
+            </>
+          )}
+        </video>
+      </div>
 
 
       <Container text className={`content textbg-${data.textBG}`}>
@@ -118,9 +108,9 @@ VideoHero.propTypes = {
     cta1Link: PropTypes.string,
     cta2Title: PropTypes.string,
     cta2Link: PropTypes.string,
-    webmUrl: PropTypes.string,
+    video2kUrl: PropTypes.string,
+    videohdUrl: PropTypes.string,
     mp4Url: PropTypes.string,
-    imageUrl: PropTypes.string,
     textPosition: PropTypes.string,
     size: PropTypes.string,
     textBG: PropTypes.string,

@@ -8,26 +8,52 @@ export const videoheroSchema = (props) => {
         id: 'default',
         title: 'Default',
         fields: [
-          'webmUrl',
-          'mp4Url',
-          'imageUrl',
           'size',
+          'textPosition',
+          'textBG',
+          'moreBelow',
+        ],
+      },
+      {
+        id: 'video',
+        title: 'MP4 Videos Files',
+        fields: [
+          'video2kUrl',
+          'videohdUrl',
+          'mp4Url',
+        ],
+      },
+      {
+        id: 'text',
+        title: 'Text',
+        fields: [
+
           'preheadingText',
           'headingText',
           'subHeadingText',
-          'textPosition',
-          'textBG',
+
+        ],
+      },
+      {
+        id: 'cta',
+        title: 'Primary CTA',
+        fields: [
           'cta1Title',
           'cta1Link',
+        ],
+      },
+      {
+        id: 'cta2',
+        title: 'Secondary CTA',
+        fields: [
           'cta2Title',
           'cta2Link',
-          'moreBelow',
         ],
       },
     ],
     properties: {
       preheadingText: {
-        title: 'Pre-heading',
+        title: 'Preheading',
         type: 'string',
       },
       headingText: {
@@ -40,39 +66,39 @@ export const videoheroSchema = (props) => {
         widget: 'textarea',
       },
       cta1Title: {
-        title: 'Primary CTA Text',
+        title: 'Text',
         type: 'string',
       },
       cta1Link: {
-        title: 'Primary CTA Link',
+        title: 'Link',
         type: 'string',
         widget: 'url',
       },
       cta2Title: {
-        title: 'Secondary CTA Text',
+        title: 'Text',
         type: 'string',
       },
       cta2Link: {
-        title: 'Secondary CTA Link',
+        title: 'Link',
         type: 'string',
         widget: 'url',
       },
-      webmUrl: {
-        title: 'WebM URL',
-        description: 'WebM videos are recommended for better quality and smaller size',
+      video2kUrl: {
+        title: '2560w URL',
+        description: '2560x1440 recommended. Ensures high quality on large desktop monitors, including high-resolution screens.',
         type: 'string',
         widget: 'url',
       },
-      mp4Url: {
-        title: 'MP4 URL',
-        description: 'MP4 videos are required for Safari compatibility',
+      videohdUrl: {
+        title: '1280w URL',
+        description: '1280x720 recommended. A standard HD resolution that provides good quality for a wide range of devices, including tablets like iPads in landscape mode and smaller laptops.',
         type: 'string',
         widget: 'url',
         required: true,
       },
-      imageUrl: {
-        title: 'Image URL',
-        description: 'Image to show on low-speed connections',
+      mp4Url: {
+        title: '768w URL',
+        description: '768x432 recommended. Suitable for many mobile devices and tablets in portrait mode.',
         type: 'string',
         widget: 'url',
         required: true,
@@ -84,7 +110,7 @@ export const videoheroSchema = (props) => {
         default: 'left',
       },
       size: {
-        title: 'Size',
+        title: 'Video Size',
         widget: 'align',
         actions: ['center', 'full'],
         default: 'center',
@@ -95,7 +121,7 @@ export const videoheroSchema = (props) => {
         default: false,
       },
       moreBelow: {
-        title: 'Show More Below Icon',
+        title: 'Show "More Below" Icon',
         type: 'boolean',
         default: false,
       },
