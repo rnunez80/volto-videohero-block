@@ -2,7 +2,7 @@ import React from 'react';
 import { Container } from 'semantic-ui-react';
 import Icon from '@plone/volto/components/theme/Icon/Icon';
 import PropTypes from 'prop-types';
-import './videoHero.css';
+import './videoHero.less';
 import moreSVG from '@plone/volto/icons/circle-bottom.svg';
 import { UniversalLink } from '@plone/volto/components';
 
@@ -77,7 +77,7 @@ const VideoHero = ({ data }) => {
       </div>
 
 
-      <Container text className={`content textbg-${data.textBG}`}>
+      <Container text className={`content textbg-${data.textBG} ${data.headingColor}`}>
         <div className='preHeading'>{data.preheadingText}</div>
         <div className='videoHeading'>{data.headingText}</div>
         <p className='subHeading'>{data.subHeadingText}</p>
@@ -115,6 +115,7 @@ VideoHero.propTypes = {
     size: PropTypes.string,
     textBG: PropTypes.string,
     moreBelow: PropTypes.string,
+    headingColor: PropTypes.string,
   }).isRequired,
 };
 

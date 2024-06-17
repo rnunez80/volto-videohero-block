@@ -27,11 +27,10 @@ export const videoheroSchema = (props) => {
         id: 'text',
         title: 'Text',
         fields: [
-
           'preheadingText',
           'headingText',
+          'headingColor',
           'subHeadingText',
-
         ],
       },
       {
@@ -124,6 +123,16 @@ export const videoheroSchema = (props) => {
         title: 'Show "More Below" Icon',
         type: 'boolean',
         default: false,
+      },
+      headingColor: {
+        title: 'Color',
+        type: 'string',
+        widget: 'color_picker',
+        colors: [
+          { name: 'primary', label: 'Primary' },
+          { name: 'secondary', label: 'Secondary' },
+          { name: 'tertiary', label: 'Tertiary' },
+        ],
       },
     },
     required: [],
