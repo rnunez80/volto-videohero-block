@@ -1,19 +1,31 @@
-import React from 'react';
-import { Container } from 'semantic-ui-react';
+import React, { useRef, useState } from 'react';
+import { Container, Image } from 'semantic-ui-react';
 import Icon from '@plone/volto/components/theme/Icon/Icon';
 import PropTypes from 'prop-types';
 import './videoHero.less';
 import moreSVG from '@plone/volto/icons/circle-bottom.svg';
 import { UniversalLink } from '@plone/volto/components';
 
+
 const VideoHero = ({ data }) => {
   const sizeClass = data.size === 'full' ? 'full' : '';
+  const [isPlaying, setIsPlaying] = useState(true);
+  const videoRef = useRef(null);
+
+  const handlePlayPause = () => {
+    if (isPlaying) {
+      videoRef.current.pause();
+    } else {
+      videoRef.current.play();
+    }
+    setIsPlaying(!isPlaying);
+  };
 
   return (
     <div className={`video-hero ${sizeClass} text-${data.textPosition}`}>
 
       <div className='background-video'>
-        <video autoPlay muted loop playsInline>
+        <video autoPlay muted loop playsInline ref={videoRef}>
           {data.size === 'full' ? (
             <>
               {data.video2kUrl && (
@@ -21,8 +33,6 @@ const VideoHero = ({ data }) => {
                   src={`${data.video2kUrl}/@@download/file`}
                   type='video/mp4'
                   media='(min-width: 1280px) and (min-height: 720px)'
-                  width='2560'
-                  height='1440'
                 />
               )}
               {data.videohdUrl && (
@@ -30,50 +40,46 @@ const VideoHero = ({ data }) => {
                   src={`${data.videohdUrl}/@@download/file`}
                   type='video/mp4'
                   media='(min-width: 769px) and (max-width: 1280px), (min-height: 433px) and (max-height: 720px)'
-                  width='1280'
-                  height='720'
                 />
               )}
               {data.mp4Url && (
                 <source
                   src={`${data.mp4Url}/@@download/file`}
                   type='video/mp4'
-                  width='768'
-                  height='432'
                 />
               )}
             </>
           ) : (
             <>
-              {data.video2kUrl && (
-                <source
-                  src={`${data.video2kUrl}/@@download/file`}
-                  type='video/mp4'
-                  media='(min-width: 1280px) and (min-height: 720px)'
-                  width='2560'
-                  height='1440'
-                />
-              )}
               {data.videohdUrl && (
                 <source
                   src={`${data.videohdUrl}/@@download/file`}
                   type='video/mp4'
-                  media='(min-width: 768px) and (max-width: 1279px), (min-height: 432px) and (max-height: 719px)'
-                  width='1280'
-                  height='720'
+                  media='(min-width: 768px), (min-height: 432px)'
                 />
               )}
               {data.mp4Url && (
                 <source
                   src={`${data.mp4Url}/@@download/file`}
                   type='video/mp4'
-                  width='768'
-                  height='432'
                 />
               )}
             </>
           )}
         </video>
+        <button className='ui circular button playpause' onClick={handlePlayPause}>
+          {isPlaying ? (
+            <Image
+              src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTEgMjJoLTR2LTIwaDR2MjB6bTYtMjBoLTR2MjBoNHYtMjB6Ii8+PC9zdmc+'
+              alt='pause'
+            />
+          ) : (
+            <Image
+              src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMyAyMnYtMjBsMTggMTAtMTggMTB6Ii8+PC9zdmc+'
+              alt='play'
+            />
+          )}
+        </button>
       </div>
 
 
