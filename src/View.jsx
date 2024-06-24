@@ -67,15 +67,19 @@ const VideoHero = ({ data }) => {
             </>
           )}
         </video>
-        <button className='ui circular button playpause' onClick={handlePlayPause}>
+        <button
+          className='ui circular button playpause'
+          onClick={handlePlayPause}
+          aria-label={isPlaying ? 'Pause video' : 'Play video'}
+        >
           {isPlaying ? (
             <Image
-              src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTEgMjJoLTR2LTIwaDR2MjB6bTYtMjBoLTR2MjBoNHYtMjB6Ii8+PC9zdmc+'
+              src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSJ3aGl0ZSIgZD0iTTExIDIyaC00di0yMGg0djIweiBtNi0yMGgtNHYyMGg0di0yMHoiLz48L3N2Zz4='
               alt='pause'
             />
           ) : (
             <Image
-              src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMyAyMnYtMjBsMTggMTAtMTggMTB6Ii8+PC9zdmc+'
+              src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSJ3aGl0ZSIgZD0iTTMgMjJ2LTIwbDE4IDEwLTE4IDEweiI+PC9wYXRoPjwvc3ZnPg=='
               alt='play'
             />
           )}
