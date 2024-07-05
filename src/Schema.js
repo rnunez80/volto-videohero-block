@@ -1,3 +1,5 @@
+import messages from './messages';
+
 export const videoheroSchema = (props) => {
   const { intl } = props;
 
@@ -52,80 +54,80 @@ export const videoheroSchema = (props) => {
     ],
     properties: {
       preheadingText: {
-        title: 'Preheading',
+        title: intl.formatMessage(messages.preheadingText),
         type: 'string',
       },
       headingText: {
-        title: 'Heading',
+        title: intl.formatMessage(messages.headingText),
         type: 'string',
       },
       subHeadingText: {
-        title: 'Subheading',
+        title: intl.formatMessage(messages.subHeadingText),
         type: 'string',
         widget: 'textarea',
       },
       cta1Title: {
-        title: 'Text',
+        title: intl.formatMessage(messages.cta1Title),
         type: 'string',
       },
       cta1Link: {
-        title: 'Link',
+        title: intl.formatMessage(messages.cta1Link),
         type: 'string',
         widget: 'url',
       },
       cta2Title: {
-        title: 'Text',
+        title: intl.formatMessage(messages.cta2Title),
         type: 'string',
       },
       cta2Link: {
-        title: 'Link',
+        title: intl.formatMessage(messages.cta2Link),
         type: 'string',
         widget: 'url',
       },
       video2kUrl: {
         title: '2560w URL',
-        description: '2560x1440 recommended. Ensures high quality on large desktop monitors, including high-resolution screens.',
+        description: intl.formatMessage(messages.video2kUrlDescription),
         type: 'string',
         widget: 'url',
       },
       videohdUrl: {
         title: '1280w URL',
-        description: '1280x720 recommended. A standard HD resolution that provides good quality for a wide range of devices, including tablets like iPads in landscape mode and smaller laptops.',
+        description: intl.formatMessage(messages.videohdUrlDescription),
         type: 'string',
         widget: 'url',
         required: true,
       },
       mp4Url: {
         title: '768w URL',
-        description: '768x432 recommended. Suitable for many mobile devices and tablets in portrait mode.',
+        description: intl.formatMessage(messages.mp4UrlDescription),
         type: 'string',
         widget: 'url',
         required: true,
       },
       textPosition: {
-        title: 'Text Position',
+        title: intl.formatMessage(messages.textposition),
         widget: 'align',
         actions: ['left', 'center', 'right'],
         default: 'left',
       },
       size: {
-        title: 'Video Size',
+        title: intl.formatMessage(messages.size),
         widget: 'align',
         actions: ['center', 'full'],
         default: 'center',
       },
       textBG: {
-        title: 'Use Background on Text',
+        title: intl.formatMessage(messages.textBackground),
         type: 'boolean',
         default: false,
       },
       moreBelow: {
-        title: 'Show "More Below" Icon',
+        title: intl.formatMessage(messages.moreBelow),
         type: 'boolean',
         default: false,
       },
       headingColor: {
-        title: 'Color',
+        title: intl.formatMessage(messages.headingColor),
         type: 'string',
         widget: 'color_picker',
         colors: [
