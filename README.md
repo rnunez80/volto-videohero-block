@@ -7,12 +7,12 @@ The `volto-videohero-block` is a custom Volto add-on that provides a "Video Hero
 
 ## Features
 
-- Video background support (WebM and MP4)
-- Image fallback for video (for low-speed connections)
-- content wide or full width/hight
-- Two customizable call-to-action buttons
-- Configurable text alignment
+- MP4 Video background (upload of 768w,1280w,2560w for performance)
+- Video width can be content or full width/height
+- Two customizable call-to-action buttons (primary and secondary)
+- Configurable text alignment (left, center, right)
 - Support for pre-heading and subheading
+- Option to show heading text in 3 colors
 - Option to add background to text
 - Option to show "more below" icon
 
@@ -28,9 +28,11 @@ npm install volto-videohero-block
 
 The schema for the `videoheroSchema` includes the following fields:
 
-- `webmUrl`: WebM video URL (recommended for better quality and smaller size)
-- `mp4Url`: MP4 video URL (required for Safari compatibility)
-- `imageUrl`: Image URL (to show on low-speed connections)
+- `video2kUrl`: 2560x1440 recommended. Ensures high quality on large desktop monitors, including high-resolution
+  screens. (URL)
+- `videohdUrl`: 1280x720 recommended. A standard HD resolution that provides good quality for a wide range of devices,
+  including tablets like iPads in landscape mode and smaller laptops. (URL)
+- `mp4Url`: 768x432 recommended. Suitable for many mobile devices and tablets in portrait mode. (URL)
 - `size`: Size of the block (center or full)
 - `preheadingText`: Pre-heading text
 - `headingText`: Heading text
@@ -48,59 +50,7 @@ The schema for the `videoheroSchema` includes the following fields:
 To use the Video Hero block in your Volto project, add it to the available blocks in your Volto configuration and
 include the necessary properties.
 
-Example configuration:
-
-```javascript
-import { videoheroSchema } from './Schema';
-
-const customBlocks = {
-  ...existingBlocks,
-  videohero: {
-    id: 'videohero',
-    title: 'Video Hero',
-    icon: videoIcon,
-    group: 'common',
-    view: View,
-    edit: Edit,
-    schema: videoheroSchema,
-  },
-};
-
-export default customBlocks;
-```
-
-## Example
-
-Here's an example of how you can use the Video Hero block in your project:
-
-```jsx
-import React from 'react';
-import { View } from './View';
-import { videoheroSchema } from './Schema';
-
-const VideoHeroExample = () => (
-  <View
-    data={{
-      webmUrl: 'https://example.com/video.webm',
-      mp4Url: 'https://example.com/video.mp4',
-      imageUrl: 'https://example.com/image.jpg',
-      preheadingText: 'Welcome to',
-      headingText: 'Our Site',
-      subHeadingText: 'We are glad to see you here',
-      cta1Title: 'Learn More',
-      cta1Link: 'https://example.com/learn-more',
-      cta2Title: 'Get Started',
-      cta2Link: 'https://example.com/get-started',
-      textPosition: 'center',
-      size: 'full',
-      textBG: true,
-      moreBelow: false,
-    }}
-  />
-);
-
-export default VideoHeroExample;
-```
+[![Watch the video](https://img.youtube.com/vi/VJ7uqunIBnI/maxresdefault.jpg)](https://youtu.be/VJ7uqunIBnI)
 
 ## Contributing
 
