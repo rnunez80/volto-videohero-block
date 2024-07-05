@@ -47,8 +47,7 @@ The schema for the `videoheroSchema` includes the following fields:
 
 ## Usage
 
-To use the Video Hero block in your Volto project, add it to the available blocks in your Volto configuration and
-include the necessary properties.
+Add it to your content like any other block.
 
 [![Watch the video](https://img.youtube.com/vi/M4VBHFvEiqw/maxresdefault.jpg)](https://youtu.be/M4VBHFvEiqw)
 
