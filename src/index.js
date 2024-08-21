@@ -1,7 +1,9 @@
+import React, { Suspense } from 'react';
 import iconSVG from '@plone/volto/icons/video.svg';
-import View from './View';
-import Edit from './Edit';
 
+// Use React.lazy to dynamically import the components
+const View = React.lazy(() => import('./View'));
+const Edit = React.lazy(() => import('./Edit'));
 
 const applyConfig = (config) => {
   config.blocks.blocksConfig.videohero = {
@@ -9,8 +11,16 @@ const applyConfig = (config) => {
     title: 'Video Hero',
     icon: iconSVG,
     group: 'common',
-    view: View,
-    edit: Edit,
+    view: (props) => (
+      <Suspense fallback={<div>Loading...</div>}>
+        <View {...props} />
+      </Suspense>
+    ),
+    edit: (props) => (
+      <Suspense fallback={<div>Loading...</div>}>
+        <Edit {...props} />
+      </Suspense>
+    ),
     restricted: false,
     mostUsed: true,
     sidebarTab: 1,
@@ -19,4 +29,3 @@ const applyConfig = (config) => {
 };
 
 export default applyConfig;
-
