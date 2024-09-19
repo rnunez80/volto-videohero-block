@@ -70,6 +70,7 @@ const VideoHero = ({ data }) => {
         <button
           className='ui circular button playpause'
           onClick={handlePlayPause}
+          style='background-color: transparent !important;'
           aria-label={isPlaying ? 'Pause video' : 'Play video'}
         >
           {isPlaying ? (
