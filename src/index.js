@@ -31,7 +31,7 @@ const applyConfig = (config) => {
     view: View,
     edit: Edit,
     restricted: false,
-    mostUsed: true,
+    mostUsed: false,
     sidebarTab: 1,
   };
   return config;
