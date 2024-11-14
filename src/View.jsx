@@ -22,6 +22,7 @@ const VideoHero = ({ data }) => {
   };
 
   return (
+    <>
     <div className={`video-hero ${sizeClass} text-${data.textPosition}`}>
 
       <div className='background-video'>
@@ -70,7 +71,7 @@ const VideoHero = ({ data }) => {
         <button
           className='ui circular button playpause'
           onClick={handlePlayPause}
-          style='background-color: transparent !important;'
+          style={{ backgroundColor: 'transparent' }}
           aria-label={isPlaying ? 'Pause video' : 'Play video'}
         >
           {isPlaying ? (
@@ -90,7 +91,7 @@ const VideoHero = ({ data }) => {
 
       <Container text className={`content textbg-${data.textBG} ${data.headingColor}`}>
         <div className='preHeading'>{data.preheadingText}</div>
-        <div className='videoHeading'>{data.headingText}</div>
+        <div className='videoHeading'><h1>{data.headingText}</h1></div>
         <p className='subHeading'>{data.subHeadingText}</p>
         {data.cta1Title && data.cta1Link && (
           <UniversalLink href={data.cta1Link} className='ui button primary'>
@@ -104,9 +105,13 @@ const VideoHero = ({ data }) => {
         )}
       </Container>
       {data.moreBelow && (
+        <a href='#moreContent'>
         <Icon name={moreSVG} size='40px' className='moreContent' />
+        </a>
       )}
     </div>
+      <div id='moreContent' />
+    </>
   );
 };
 
