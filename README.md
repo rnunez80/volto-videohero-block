@@ -3,7 +3,8 @@
 
 ## Overview
 
-The `volto-videohero-block` is a custom Volto add-on that provides a "Video Hero" block. This block allows you to create a hero section with a video background, an image fallback, a title, description, and two call-to-action buttons.
+The `volto-videohero-block` is a custom Volto add-on that provides a "Video Hero" block. This block allows you to create
+a hero section with a video background, a title, description, and two call-to-action buttons.
 
 ## Features
 
