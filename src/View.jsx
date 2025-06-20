@@ -92,12 +92,12 @@ const VideoHero = ({ data }) => {
           </div>
           <p className='subHeading'>{data.subHeadingText}</p>
           {data.cta1Title && data.cta1Link && (
-            <UniversalLink href={data.cta1Link} className='ui button primary'>
+            <UniversalLink href={data.cta1Link} className='ui button primary large'>
               {data.cta1Title}
             </UniversalLink>
           )}
           {data.cta2Title && data.cta2Link && (
-            <UniversalLink href={data.cta2Link} className='ui button secondary'>
+            <UniversalLink href={data.cta2Link} className='ui button secondary large'>
               {data.cta2Title}
             </UniversalLink>
           )}
