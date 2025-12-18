@@ -83,10 +83,7 @@
   font-size: 4rem;
 }
 
-.preHeading {
-  font-variant: all-small-caps;
-  font-size: 1.2em;
-}
+
 
 .moreContent {
   color: #fff;
@@ -165,3 +162,13 @@
     font-size: 1.5em;
   }
 }
+.preHeading {
+  font-variant: all-small-caps;
+  font-size: 1.2em;
+  line-height: 1em;
+}
+.preHeading, .videoHeading h1 {
+    font-size: clamp(1.0rem, 7vw, 7rem);
+}
+.video-hero .ui.text.container {
+  max-width: clamp(376px, 100vw, 35vw) !important;}
