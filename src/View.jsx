@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Container, Image } from 'semantic-ui-react';
 import Icon from '@plone/volto/components/theme/Icon/Icon';
 import PropTypes from 'prop-types';
@@ -11,6 +11,13 @@ const VideoHero = ({ data }) => {
   const [isPlaying, setIsPlaying] = useState(true);
   const videoRef = useRef(null);
   const endOfVideoRef = useRef(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.defaultMuted = true;
+      videoRef.current.muted = true;
+    }
+  }, []);
 
   const handlePlayPause = () => {
     if (isPlaying) {
@@ -29,7 +36,16 @@ const VideoHero = ({ data }) => {
     <>
       <div className={`video-hero ${sizeClass} text-${data.textPosition}`}>
         <div className='background-video'>
-          <video autoPlay muted loop playsInline ref={videoRef}>
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            ref={videoRef}
+            defaultMuted={true}
+            aria-hidden="true"
+            tabIndex="-1"
+          >
             {data.size === 'full' ? (
               <>
                 {data.video2kUrl && (
