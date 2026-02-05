@@ -101,25 +101,48 @@ const VideoHero = ({ data }) => {
           </button>
         </div>
 
-        <Container text className={`content textbg-${data.textBG} ${data.headingColor}`}>
-          <div className='preHeading'>{data.preheadingText}</div>
-          <div className='videoHeading'>
-            <h1>{data.headingText}</h1>
-          </div>
-          <p className='subHeading'>{data.subHeadingText}</p>
+        <Container text className={`content textbg-${data.textBG} ${data.headingColor}`} role="region" aria-label="Hero content">
+          {data.preheadingText && (
+            <div className='preHeading' aria-label="Section label">
+              {data.preheadingText}
+            </div>
+          )}
+          {data.headingText && (
+            <div className='videoHeading'>
+              <h1>{data.headingText}</h1>
+            </div>
+          )}
+          {data.subHeadingText && (
+            <p className='subHeading'>{data.subHeadingText}</p>
+          )}
           {data.cta1Title && data.cta1Link && (
-            <UniversalLink href={data.cta1Link} className='ui button primary large'>
+            <UniversalLink
+              href={data.cta1Link}
+              className='ui button primary large'
+              aria-label={`${data.cta1Title} - Primary call to action`}
+            >
               {data.cta1Title}
             </UniversalLink>
           )}
           {data.cta2Title && data.cta2Link && (
-            <UniversalLink href={data.cta2Link} className='ui button secondary large'>
+            <UniversalLink
+              href={data.cta2Link}
+              className='ui button secondary large'
+              aria-label={`${data.cta2Title} - Secondary call to action`}
+            >
               {data.cta2Title}
             </UniversalLink>
           )}
         </Container>
         {data.moreBelow && (
-          <Icon name={moreSVG} size='40px' className='moreContent' onClick={scrollToEndOfVideo} />
+          <button
+            className='moreContent'
+            onClick={scrollToEndOfVideo}
+            aria-label="Scroll to content below"
+            type="button"
+          >
+            <Icon name={moreSVG} size='40px' aria-hidden="true" />
+          </button>
         )}
       </div>
       <div className='endofvideo' ref={endOfVideoRef} />
