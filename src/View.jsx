@@ -45,6 +45,7 @@ const VideoHero = ({ data }) => {
             defaultMuted={true}
             aria-hidden="true"
             tabIndex="-1"
+            fetchpriority="high"
           >
             {data.size === 'full' ? (
               <>
