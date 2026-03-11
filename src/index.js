@@ -27,7 +27,7 @@ const applyConfig = (config) => {
     id: 'videohero',
     title: 'Video Hero',
     icon: iconSVG,
-    group: 'common',
+    group: 'media',
     view: View,
     edit: Edit,
     restricted: false,
