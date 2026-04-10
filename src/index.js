@@ -2,6 +2,7 @@ import React from 'react';
 import loadable from '@loadable/component';
 import iconSVG from '@plone/volto/icons/video.svg';
 import { Loader } from 'semantic-ui-react';
+import { applyStyleWrapperToBlock } from '@eeacms/volto-block-style';
 
 // Use @loadable/component to dynamically import the components
 const View = loadable(() => import('./View'), {
@@ -34,6 +35,11 @@ const applyConfig = (config) => {
     mostUsed: false,
     sidebarTab: 1,
   };
+
+  config.blocks.blocksConfig.videohero = applyStyleWrapperToBlock(
+    config.blocks.blocksConfig.videohero,
+  );
+
   return config;
 };
 

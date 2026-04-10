@@ -9,5 +9,8 @@
     "volto",
     "plone",
     "react"
-  ]
+  ],
+  "dependencies": {
+    "@eeacms/volto-block-style": "*"
+  }
 }
