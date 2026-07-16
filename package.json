@@ -12,5 +12,8 @@
   ],
   "dependencies": {
     "@eeacms/volto-block-style": "*"
+  },
+  "peerDependencies": {
+    "@plone/volto": ">=16.0.0"
   }
 }

@@ -5,6 +5,15 @@ import PropTypes from 'prop-types';
 import './videoHero.less';
 import moreSVG from '@plone/volto/icons/circle-bottom.svg';
 import { UniversalLink } from '@plone/volto/components';
+import { flattenToAppURL } from '@plone/volto/helpers';
+
+const getUrl = (url) => {
+  if (!url) return '';
+  if (Array.isArray(url) && url.length > 0) {
+    return flattenToAppURL(url[0]['@id'] || '');
+  }
+  return flattenToAppURL(url || '');
+};
 
 const VideoHero = ({ data }) => {
   const sizeClass = data.size === 'full' ? 'full' : '';
@@ -51,33 +60,33 @@ const VideoHero = ({ data }) => {
               <>
                 {data.video2kUrl && (
                   <source
-                    src={`${data.video2kUrl}/@@download/file`}
+                    src={`${getUrl(data.video2kUrl)}/@@download/file`}
                     type='video/mp4'
                     media='(min-width: 1280px) and (min-height: 720px)'
                   />
                 )}
                 {data.videohdUrl && (
                   <source
-                    src={`${data.videohdUrl}/@@download/file`}
+                    src={`${getUrl(data.videohdUrl)}/@@download/file`}
                     type='video/mp4'
                     media='(min-width: 769px) and (max-width: 1280px), (min-height: 433px) and (max-height: 720px)'
                   />
                 )}
                 {data.mp4Url && (
-                  <source src={`${data.mp4Url}/@@download/file`} type='video/mp4' />
+                  <source src={`${getUrl(data.mp4Url)}/@@download/file`} type='video/mp4' />
                 )}
               </>
             ) : (
               <>
                 {data.videohdUrl && (
                   <source
-                    src={`${data.videohdUrl}/@@download/file`}
+                    src={`${getUrl(data.videohdUrl)}/@@download/file`}
                     type='video/mp4'
                     media='(min-width: 768px), (min-height: 432px)'
                   />
                 )}
                 {data.mp4Url && (
-                  <source src={`${data.mp4Url}/@@download/file`} type='video/mp4' />
+                  <source src={`${getUrl(data.mp4Url)}/@@download/file`} type='video/mp4' />
                 )}
               </>
             )}
@@ -118,7 +127,7 @@ const VideoHero = ({ data }) => {
           )}
           {data.cta1Title && data.cta1Link && (
             <UniversalLink
-              href={data.cta1Link}
+              href={getUrl(data.cta1Link)}
               className='ui button primary large'
               aria-label={`${data.cta1Title} - Primary call to action`}
             >
@@ -127,7 +136,7 @@ const VideoHero = ({ data }) => {
           )}
           {data.cta2Title && data.cta2Link && (
             <UniversalLink
-              href={data.cta2Link}
+              href={getUrl(data.cta2Link)}
               className='ui button secondary large'
               aria-label={`${data.cta2Title} - Secondary call to action`}
             >
