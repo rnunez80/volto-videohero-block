@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { Container, Image } from 'semantic-ui-react';
+import cx from 'classnames';
 import Icon from '@plone/volto/components/theme/Icon/Icon';
 import PropTypes from 'prop-types';
 import './videoHero.less';
@@ -89,12 +89,12 @@ const VideoHero = ({ data }) => {
             aria-label={isPlaying ? 'Pause video' : 'Play video'}
           >
             {isPlaying ? (
-              <Image
+              <img
                 src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSJ3aGl0ZSIgZD0iTTExIDIyaC00di0yMGg0djIweiBtNi0yMGgtNHYyMGg0di0yMHoiLz48L3N2Zz4='
                 alt='pause'
               />
             ) : (
-              <Image
+              <img
                 src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSJ3aGl0ZSIgZD0iTTMgMjJ2LTIwbDE4IDEwLTE4IDEweiI+PC9wYXRoPjwvc3ZnPg=='
                 alt='play'
               />
@@ -102,7 +102,7 @@ const VideoHero = ({ data }) => {
           </button>
         </div>
 
-        <Container text className={`content textbg-${data.textBG} ${data.headingColor}`} role="region" aria-label="Hero content">
+        <div className={cx('block-inner-container ui container text content', `textbg-${data.textBG}`, data.headingColor)} role="region" aria-label="Hero content">
           {data.preheadingText && (
             <div className='preHeading' aria-label="Section label">
               {data.preheadingText}
@@ -119,7 +119,7 @@ const VideoHero = ({ data }) => {
           {data.cta1Title && data.cta1Link && (
             <UniversalLink
               href={data.cta1Link}
-              className='ui button primary large'
+              className='btn-primary ui button primary large'
               aria-label={`${data.cta1Title} - Primary call to action`}
             >
               {data.cta1Title}
@@ -128,13 +128,13 @@ const VideoHero = ({ data }) => {
           {data.cta2Title && data.cta2Link && (
             <UniversalLink
               href={data.cta2Link}
-              className='ui button secondary large'
+              className='btn-secondary ui button secondary large'
               aria-label={`${data.cta2Title} - Secondary call to action`}
             >
               {data.cta2Title}
             </UniversalLink>
           )}
-        </Container>
+        </div>
         {data.moreBelow && (
           <button
             className='moreContent'
