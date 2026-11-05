@@ -31,15 +31,18 @@ const messages = defineMessages({
   },
   videohdUrlDescription: {
     id: '1280w',
-    defaultMessage: '1280x720 recommended. A standard HD resolution that provides good quality for a wide range of devices, including tablets like iPads in landscape mode and smaller laptops.',
+    defaultMessage:
+      '1280x720 recommended. A standard HD resolution that provides good quality for a wide range of devices, including tablets like iPads in landscape mode and smaller laptops.',
   },
   video2kUrlDescription: {
     id: '2560w',
-    defaultMessage: '2560x1440 recommended. Ensures high quality on large desktop monitors, including high-resolution screens.',
+    defaultMessage:
+      '2560x1440 recommended. Ensures high quality on large desktop monitors, including high-resolution screens.',
   },
   mp4UrlDescription: {
     id: '768w',
-    defaultMessage: '768x432 recommended. Suitable for many mobile devices and tablets in portrait mode.',
+    defaultMessage:
+      '768x432 recommended. Suitable for many mobile devices and tablets in portrait mode.',
   },
   textposition: {
     id: 'Text position',

@@ -20,7 +20,7 @@ const videoheroData = (props) => {
   return (
     <BlockDataForm
       schema={schema}
-      title='Video Hero Block'
+      title="Video Hero Block"
       onChangeField={(id, value) => {
         onChangeBlock(block, {
           ...data,

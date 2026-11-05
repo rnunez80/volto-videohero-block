@@ -9,21 +9,12 @@ export const videoheroSchema = (props) => {
       {
         id: 'default',
         title: 'Default',
-        fields: [
-          'size',
-          'textPosition',
-          'textBG',
-          'moreBelow',
-        ],
+        fields: ['size', 'textPosition', 'textBG', 'moreBelow'],
       },
       {
         id: 'video',
         title: 'MP4 Videos Files',
-        fields: [
-          'video2kUrl',
-          'videohdUrl',
-          'mp4Url',
-        ],
+        fields: ['video2kUrl', 'videohdUrl', 'mp4Url'],
       },
       {
         id: 'text',
@@ -38,18 +29,12 @@ export const videoheroSchema = (props) => {
       {
         id: 'cta',
         title: 'Primary CTA',
-        fields: [
-          'cta1Title',
-          'cta1Link',
-        ],
+        fields: ['cta1Title', 'cta1Link'],
       },
       {
         id: 'cta2',
         title: 'Secondary CTA',
-        fields: [
-          'cta2Title',
-          'cta2Link',
-        ],
+        fields: ['cta2Title', 'cta2Link'],
       },
     ],
     properties: {

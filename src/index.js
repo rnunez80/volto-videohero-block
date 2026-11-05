@@ -8,7 +8,7 @@ import { applyStyleWrapperToBlock } from '@eeacms/volto-block-style';
 const View = loadable(() => import('./View'), {
   fallback: (
     <div>
-      <Loader active inline='centered' />
+      <Loader active inline="centered" />
       <p>Loading...</p>
     </div>
   ),
@@ -17,7 +17,7 @@ const View = loadable(() => import('./View'), {
 const Edit = loadable(() => import('./Edit'), {
   fallback: (
     <div>
-      <Loader active inline='centered' />
+      <Loader active inline="centered" />
       <p>Loading...</p>
     </div>
   ),

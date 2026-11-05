@@ -35,7 +35,7 @@ const VideoHero = ({ data }) => {
   return (
     <>
       <div className={`video-hero ${sizeClass} text-${data.textPosition}`}>
-        <div className='background-video'>
+        <div className="background-video">
           <video
             autoPlay
             muted
@@ -52,19 +52,22 @@ const VideoHero = ({ data }) => {
                 {data.video2kUrl && (
                   <source
                     src={`${data.video2kUrl}/@@download/file`}
-                    type='video/mp4'
-                    media='(min-width: 1280px) and (min-height: 720px)'
+                    type="video/mp4"
+                    media="(min-width: 1280px) and (min-height: 720px)"
                   />
                 )}
                 {data.videohdUrl && (
                   <source
                     src={`${data.videohdUrl}/@@download/file`}
-                    type='video/mp4'
-                    media='(min-width: 769px) and (max-width: 1280px), (min-height: 433px) and (max-height: 720px)'
+                    type="video/mp4"
+                    media="(min-width: 769px) and (max-width: 1280px), (min-height: 433px) and (max-height: 720px)"
                   />
                 )}
                 {data.mp4Url && (
-                  <source src={`${data.mp4Url}/@@download/file`} type='video/mp4' />
+                  <source
+                    src={`${data.mp4Url}/@@download/file`}
+                    type="video/mp4"
+                  />
                 )}
               </>
             ) : (
@@ -72,54 +75,65 @@ const VideoHero = ({ data }) => {
                 {data.videohdUrl && (
                   <source
                     src={`${data.videohdUrl}/@@download/file`}
-                    type='video/mp4'
-                    media='(min-width: 768px), (min-height: 432px)'
+                    type="video/mp4"
+                    media="(min-width: 768px), (min-height: 432px)"
                   />
                 )}
                 {data.mp4Url && (
-                  <source src={`${data.mp4Url}/@@download/file`} type='video/mp4' />
+                  <source
+                    src={`${data.mp4Url}/@@download/file`}
+                    type="video/mp4"
+                  />
                 )}
               </>
             )}
           </video>
           <button
-            className='playpause'
+            className="playpause"
             onClick={handlePlayPause}
             style={{ backgroundColor: 'transparent' }}
             aria-label={isPlaying ? 'Pause video' : 'Play video'}
           >
             {isPlaying ? (
               <img
-                src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSJ3aGl0ZSIgZD0iTTExIDIyaC00di0yMGg0djIweiBtNi0yMGgtNHYyMGg0di0yMHoiLz48L3N2Zz4='
-                alt='pause'
+                src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSJ3aGl0ZSIgZD0iTTExIDIyaC00di0yMGg0djIweiBtNi0yMGgtNHYyMGg0di0yMHoiLz48L3N2Zz4="
+                alt="pause"
               />
             ) : (
               <img
-                src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSJ3aGl0ZSIgZD0iTTMgMjJ2LTIwbDE4IDEwLTE4IDEweiI+PC9wYXRoPjwvc3ZnPg=='
-                alt='play'
+                src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSJ3aGl0ZSIgZD0iTTMgMjJ2LTIwbDE4IDEwLTE4IDEweiI+PC9wYXRoPjwvc3ZnPg=="
+                alt="play"
               />
             )}
           </button>
         </div>
 
-        <div className={cx('block-inner-container ui container text content', `textbg-${data.textBG}`, data.headingColor)} role="region" aria-label="Hero content">
+        <div
+          className={cx(
+            'block-inner-container ui container text content',
+            `textbg-${data.textBG}`,
+            data.headingColor,
+          )}
+          role="region"
+          aria-label="Hero content"
+        >
           {data.preheadingText && (
-            <div className='preHeading' aria-label="Section label">
+            <div className="preHeading" aria-label="Section label">
               {data.preheadingText}
             </div>
           )}
           {data.headingText && (
-            <div className='videoHeading'>
+            <div className="videoHeading">
               <h1>{data.headingText}</h1>
             </div>
           )}
           {data.subHeadingText && (
-            <p className='subHeading'>{data.subHeadingText}</p>
+            <p className="subHeading">{data.subHeadingText}</p>
           )}
           {data.cta1Title && data.cta1Link && (
             <UniversalLink
               href={data.cta1Link}
-              className='btn-primary ui button primary large'
+              className="btn-primary ui button primary large"
               aria-label={`${data.cta1Title} - Primary call to action`}
             >
               {data.cta1Title}
@@ -128,7 +142,7 @@ const VideoHero = ({ data }) => {
           {data.cta2Title && data.cta2Link && (
             <UniversalLink
               href={data.cta2Link}
-              className='btn-secondary ui button secondary large'
+              className="btn-secondary ui button secondary large"
               aria-label={`${data.cta2Title} - Secondary call to action`}
             >
               {data.cta2Title}
@@ -137,16 +151,16 @@ const VideoHero = ({ data }) => {
         </div>
         {data.moreBelow && (
           <button
-            className='moreContent'
+            className="moreContent"
             onClick={scrollToEndOfVideo}
             aria-label="Scroll to content below"
             type="button"
           >
-            <Icon name={moreSVG} size='40px' aria-hidden="true" />
+            <Icon name={moreSVG} size="40px" aria-hidden="true" />
           </button>
         )}
       </div>
-      <div className='endofvideo' ref={endOfVideoRef} />
+      <div className="endofvideo" ref={endOfVideoRef} />
     </>
   );
 };
